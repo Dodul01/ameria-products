@@ -48,7 +48,7 @@ export default function NewPasswordPage() {
                             <Input
                                 type={showPassword1 ? "text" : "password"}
                                 placeholder="Password"
-                                className="pr-10"
+                                className="pr-10 px-3 py-2 h-12 w-full"
                             />
                             <button
                                 type="button"
