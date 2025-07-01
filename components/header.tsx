@@ -30,7 +30,7 @@ export function Header() {
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-gray-50 border-gray-200 focus:bg-white"
+              className="pl-10 bg-[#F5F5F5] border-gray-200 focus:bg-white"
             />
           </div>
         </div>
@@ -39,12 +39,12 @@ export function Header() {
         <div className="flex items-center space-x-4">
           {/* Notifications */}
           <div className="relative">
-            <Button variant="ghost" size="sm" className="relative">
-              <Bell className="h-5 w-5 text-gray-600" />
+            <Button variant="ghost"  className=" bg-gray-100 rounded-full">
+              <Bell className="h-10 w-10 text-gray-600" size={30} />
               {notificationCount > 0 && (
                 <Badge
                   variant="destructive"
-                  className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+                  className="bg-blue-300 text-white -right-3 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
                 >
                   {notificationCount}
                 </Badge>
