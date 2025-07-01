@@ -23,10 +23,10 @@ export default function UserTable({ users }: UserTableProps) {
       <table className="w-full">
         <thead className="bg-[#08692C] text-white">
           <tr>
-            <th className="px-6 py-4 text-left text-sm font-medium">User ID</th>
-            <th className="px-6 py-4 text-left text-sm font-medium">User Name</th>
-            <th className="px-6 py-4 text-left text-sm font-medium">Join Date</th>
-            <th className="px-6 py-4 text-left text-sm font-medium">
+            <th className="px-6 py-2 text-left text-sm font-medium">User ID</th>
+            <th className="px-6 py-2 text-left text-sm font-medium">User Name</th>
+            <th className="px-6 py-2 text-left text-sm font-medium">Join Date</th>
+            <th className="px-6 py-2 text-left text-sm font-medium">
               <div className="flex items-center space-x-1">
                 <span>Status</span>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-full hover:bg-transparent cursor-pointer">
