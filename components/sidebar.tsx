@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { LayoutDashboard, Users, DollarSign, Crown, Settings, LogOut, Menu, X } from "lucide-react"
+import { LayoutDashboard, Users, DollarSign, Crown, Settings, Menu, X } from "lucide-react"
 import Image from "next/image"
 
 const navigationItems = [
@@ -99,7 +99,7 @@ export function Sidebar({ className }: SidebarProps) {
                                     <div
                                         className={cn(
                                             "flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
-                                            isActive ? "bg-[#08692C] text-white" : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                                            isActive ? "bg-[#08692C] text-white" : "text-[#5C5C5C] hover:bg-gray-100 hover:text-gray-900",
                                         )}
                                     >
                                         <Icon className="h-5 w-5" />
@@ -117,7 +117,15 @@ export function Sidebar({ className }: SidebarProps) {
                             onClick={handleLogout}
                             className="w-full justify-start text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                         >
-                            <LogOut className="mr-3 h-5 w-5" />
+                            <div className="h-5 w-5 mr-3">
+                                <Image
+                                    src="/logout.png"
+                                    alt="Logout Logo"
+                                    width={100}
+                                    height={100}
+                                    className="h-full w-full object-contain"
+                                />
+                            </div>
                             Log Out
                         </Button>
                     </div>

@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
-import militaryImage from '@/public/otpimg.jpg'
+import militaryImage from '@/public/log-in.jpg'
 import logo from '@/public/logo.png'
 
 export default function NewPasswordPage() {
