@@ -8,6 +8,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UserRound, UsersRoundIcon } from "lucide-react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
 import Charts from "./_components/charts/Charts"
+import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UsersRoundIcon } from "lucide-react"
+import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
 
 const earningsData = [
     { month: "Jan", value: 20 },
