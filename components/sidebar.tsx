@@ -111,13 +111,13 @@ export function Sidebar({ className }: SidebarProps) {
                     </nav>
 
                     {/* Logout */}
-                    <div className="px-4 py-4 border-t border-gray-200">
+                    <div className="pr-4 py-4 border-t border-gray-200">
                         <Button
                             variant="ghost"
                             onClick={handleLogout}
                             className="w-full justify-start text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                         >
-                            <div className="h-5 w-5 mr-3">
+                            <div className="h-5 w-5 ">
                                 <Image
                                     src="/logout.png"
                                     alt="Logout Logo"

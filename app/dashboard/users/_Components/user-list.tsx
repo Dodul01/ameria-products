@@ -9,20 +9,163 @@ import Pagination from "./pagination"
 
 
 const mockUsers = [
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Blocked" as const },
-  { id: "#5089", name: "Jane Cooper", joinDate: "May 10, 2025", status: "Active" as const },
-]
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Blocked" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  },
+  {
+    id: "#5089",
+    name: "Jane Cooper",
+    joinDate: "May 10, 2025",
+    status: "Active" as const,
+    company: {
+      name: "Acme Inc.",
+      email: "jane@acme.com",
+      leader: "John Smith",
+      subscriptionPlan: "Pro"
+    }
+  }
+];
 
 export default function UserList() {
   const [searchTerm, setSearchTerm] = useState("")
