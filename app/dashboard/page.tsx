@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UserRound, UsersRoundIcon } from "lucide-react"
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
+import Charts from "./_components/charts/Charts"
 import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UsersRoundIcon } from "lucide-react"
 import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
 
@@ -28,11 +31,12 @@ const users = [
     { id: "#5089", name: "Jane Cooper", date: "May 10,2025", status: "Blocked" },
     { id: "#5089", name: "Jane Cooper", date: "May 10,2025", status: "Active" },
     { id: "#5089", name: "Jane Cooper", date: "May 10,2025", status: "Blocked" },
-]
+];
 
 export default function DashboardPage() {
     return (
         <main className="p-4 md:p-6 space-y-6">
+            <h1 className="text-2xl font-bold">Dashboard</h1>
             {/* Metrics */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Card>
@@ -76,47 +80,8 @@ export default function DashboardPage() {
             </div>
 
             {/* Chart */}
-            <Card>
-                <CardContent className="p-6">
-                    <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-semibold">Earning Overview</h3>
-                        <Select defaultValue="2025">
-                            <SelectTrigger className="w-[100px] h-8">
-                                <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="2025">2025</SelectItem>
-                                <SelectItem value="2024">2024</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <AreaChart data={earningsData}>
-                            <defs>
-                                <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="5%" stopColor="#16a34a" stopOpacity={0.4} />
-                                    <stop offset="95%" stopColor="#16a34a" stopOpacity={0} />
-                                </linearGradient>
-                            </defs>
-                            <XAxis dataKey="month" />
-                            <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
-                            <Tooltip />
-                            <Area
-                                
-                                dataKey="value"
-                                stroke="#16a34a"
-                                fillOpacity={1}
-                                fill="url(#colorValue)"
-                                strokeWidth={2.5}
-                                // dot={{ r: 3 }}
-                                activeDot={{ r: 5 }}
-                            />
-                        </AreaChart>
-                    </ResponsiveContainer>
-
-                </CardContent>
-            </Card>
-
+            <Charts />
+ 
             {/* User Table */}
             <Card>
                 <CardContent className="p-6">

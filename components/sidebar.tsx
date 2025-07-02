@@ -24,7 +24,7 @@ const navigationItems = [
     {
         id: "earnings",
         label: "Earning Overview",
-        href: "/dashboard/earnings",
+        href: "/dashboard/earning-overview",
         icon: DollarSign,
     },
     {
