@@ -5,26 +5,9 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UserRound, UsersRoundIcon } from "lucide-react"
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
-import Charts from "./_components/charts/Charts"
 import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UsersRoundIcon } from "lucide-react"
-import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
+import Charts from "./_components/charts/Charts"
 
-const earningsData = [
-    { month: "Jan", value: 20 },
-    { month: "Feb", value: 35 },
-    { month: "Mar", value: 45 },
-    { month: "Apr", value: 95 },
-    { month: "May", value: 60 },
-    { month: "Jun", value: 40 },
-    { month: "Jul", value: 35 },
-    { month: "Aug", value: 70 },
-    { month: "Sep", value: 55 },
-    { month: "Oct", value: 50 },
-    { month: "Nov", value: 50 },
-    { month: "Dec", value: 58 },
-]
 
 const users = [
     { id: "#5089", name: "Jane Cooper", date: "May 10,2025", status: "Active" },
