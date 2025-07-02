@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UserRound, UsersRoundIcon } from "lucide-react"
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
+import { CrownIcon, LineChartIcon, EyeIcon, BanIcon, UsersRoundIcon } from "lucide-react"
+import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts"
 
 const earningsData = [
     { month: "Jan", value: 20 },

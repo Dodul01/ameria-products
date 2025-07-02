@@ -11,6 +11,12 @@ type User = {
   name: string
   joinDate: string
   status: "Active" | "Blocked"
+  company: {
+    name: string
+    email: string
+    leader: string
+    subscriptionPlan: string
+  }
 }
 
 interface UserTableProps {
@@ -47,7 +53,8 @@ export default function UserTable({ users }: UserTableProps) {
                 <StatusBadge status={user.status} />
               </td>
               <td className="px-6 py-4">
-                <ActionButtons status={user.status} />
+                 {/* <p>{JSON.stringify(user.company)}</p> */}
+                <ActionButtons companyDetails={user.company} status={user.status} />
               </td>
             </tr>
           ))}
