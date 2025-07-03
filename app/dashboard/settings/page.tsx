@@ -24,12 +24,25 @@ export default function SettingsPage() {
     showWordsCounter: false,
     showXPathInStatusbar: false,
     buttons: [
-      "fontsize", "bold", "italic", "underline", "|",
+      "font", "fontsize", "bold", "italic", "underline", "|",
       "ul", "ol", "|",
       "align", "outdent", "indent", "|",
       "undo", "redo"
     ],
+    style: {
+      font: [
+        "Arial",
+        "Verdana",
+        "Georgia",
+        "Times New Roman",
+        "Courier New",
+        "Tahoma",
+        "Comic Sans MS",
+        "Impact"
+      ],
+    },
   };
+
 
   const handleSave = () => {
     console.log("Saved:", content[activeTab]);
@@ -43,11 +56,10 @@ export default function SettingsPage() {
           <button
             key={idx}
             onClick={() => setActiveTab(idx)}
-            className={`px-4 py-2 text-sm font-medium border-b-2 ${
-              activeTab === idx
+            className={`px-4 py-2 text-sm font-medium border-b-2 ${activeTab === idx
                 ? "border-black text-black"
                 : "border-transparent text-gray-500 hover:text-black"
-            }`}
+              }`}
           >
             {tab}
           </button>

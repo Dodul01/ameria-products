@@ -1,40 +1,66 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Edit, Plus, Trash } from "lucide-react"
 
+import { useState } from "react"
+import AddSubscription from "./_Components/AddSubscription"
+
 const page = () => {
+    const [form, setForm] = useState({
+        name: "",
+        cycle: "",
+        description: "",
+        price: "",
+    })
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setForm((prev) => ({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
+    const handleSave = () => {
+        console.log("Saving Subscription:", form)
+    }
+
     return (
         <div>
             <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold my-8">Subscription Earning</h1>
                 <div className="flex items-center space-x-2">
                     <div className="relative">
-
-                        <Button
-                            className="bg-[#08692C] hover:bg-green-700 h-[40px] cursor-pointer"
-                        >
-                            <Plus className="h-4 w-4" />
-                            Create Subscription Plan
-                        </Button>
+                        <AddSubscription form={form} handleChange={handleChange} handleSave={handleSave} />
                     </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-2">
-                <Card>
-                    <CardContent>
-                        <h1 className="font-semibold text-2xl mb-4">Subscription Plan</h1>
-                        <div>
-                            <h1 className="text-muted-foreground"><span className="text-4xl text-black font-bold">$35.00</span>/month</h1>
-                        </div>
-                        <div className="flex items-center justify-between my-2">
-                            <Button className="bg-green-200 hover:bg-green-300 cursor-pointer"><Edit /> Edit Price</Button>
-                            <Button><Trash /> Remove Plan</Button>
+            <div className="max-w-md w-full">
+                <Card className="shadow-sm rounded-2xl">
+                    <CardContent className="">
+                        <h2 className="text-lg font-semibold mb-2">Subscription Plan</h2>
+                        <div className="mb-6">
+                            <span className="text-4xl font-bold text-black">$35.00</span>
+                            <span className="text-muted-foreground text-sm"> /month</span>
                         </div>
 
+                        <div className="flex w-full gap-3">
+                            <Button className="flex-1 bg-[#E9FFE9] text-green-900 hover:bg-green-200 cursor-pointer">
+                                <Edit className="w-4 h-4 mr-2" />
+                                Edit Price
+                            </Button>
+                            <Button className="flex-1 bg-[#FEF2F2] text-red-900 hover:bg-red-200 cursor-pointer">
+                                <Trash className="w-4 h-4 mr-2" />
+                                Remove Plan
+                            </Button>
+                        </div>
                     </CardContent>
                 </Card>
             </div>
+
         </div>
     )
 }

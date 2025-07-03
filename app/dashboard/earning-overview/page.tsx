@@ -1,7 +1,7 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
 import { LineChartIcon, Settings2 } from "lucide-react"
-import EarningTable from "./_Components/earning-table"
+import EarningTable from "./_components/earning-table"
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
