@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-
 export default function ForgotPasswordPage() {
 
     return (
@@ -21,16 +20,15 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Right side - Login form */}
-            <div className="flex w-full items-center justify-center bg-gray-50 lg:w-1/2">
-                <div className="w-full max-w-md space-y-8 px-8">
+            <div className="flex w-full items-center justify-center bg-gray-50 pb-48 lg:w-1/2">
+                <div className="w-full max-w-md space-y-8 py-8">
                     <div className="flex flex-col items-start space-y-4">
-                        <div className="h-16 w-24">
+                        <div className="">
                             <Image
                                 src="/logo.png"
                                 alt="Redline Track Logo"
-                                width={96}
-                                height={64}
-                                className="h-full w-full object-contain"
+                                width={128}
+                                height={85}
                             />
                         </div>
                         <div className="text-start">
@@ -48,10 +46,10 @@ export default function ForgotPasswordPage() {
                                 id="email"
                                 type="email"
                                 className="h-12 w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Enter your email"
                                 required
                             />
                         </div>
-
 
                         <Button
                             type="submit"

@@ -26,7 +26,7 @@ export default function NewPasswordPage() {
             </div>
 
             {/* Right Side Form */}
-            <div className="w-full md:w-1/2 flex items-center justify-center p-6">
+            <div className="w-full md:w-1/2 flex items-center justify-center pb-40 p-6">
                 <div className="w-full max-w-md space-y-6">
                     {/* Logo */}
                     <div>

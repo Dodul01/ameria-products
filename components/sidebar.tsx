@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { LayoutDashboard, Users, DollarSign, Crown, Settings, Menu, X } from "lucide-react"
 import Image from "next/image"
+import { toast } from "sonner"
 
 const navigationItems = [
     {
@@ -51,7 +52,7 @@ export function Sidebar({ className }: SidebarProps) {
 
     const handleLogout = () => {
         // Handle logout logic
-        console.log("Logging out...")
+        toast.success("Logged out successfully!")
     }
 
     return (
