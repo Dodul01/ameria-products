@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Search, User } from "lucide-react"
+import { Search, Settings, User } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import Link from "next/link"
+import profilePicture from '@/public/profile-picture.jpg'
 
 export function Header() {
     const [searchQuery, setSearchQuery] = useState("")
@@ -39,46 +41,57 @@ export function Header() {
                 {/* Right side */}
                 <div className="flex items-center space-x-4">
                     {/* Notifications */}
-                    <div className="relative">
-                        <Button variant="ghost" className=" bg-[#F5F5F5] rounded-full">
-                            <div className="h-8 w-6 ">
-                                <Image
-                                    src="/notification.png"
-                                    alt="notification Logo"
-                                    width={100}
-                                    height={100}
-                                    className="h-full w-full object-contain"
-                                />
-                            </div>
-                            {notificationCount > 0 && (
-                                <Badge
-                                    variant="destructive"
-                                    className="bg-[#0094F71A] text-blue-500 -right-3 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs"
-                                >
-                                    {notificationCount}
-                                </Badge>
-                            )}
-                        </Button>
+                    <div className="relative cursor-pointer">
+                        <Link href="/dashboard/notifications">
+                            <Button variant="ghost" className=" bg-[#F5F5F5] rounded-full">
+                                <div className="h-8 w-6 ">
+                                    <Image
+                                        src="/notification.png"
+                                        alt="notification Logo"
+                                        width={100}
+                                        height={100}
+                                        className="h-full w-full object-contain"
+                                    />
+                                </div>
+                                {notificationCount > 0 && (
+                                    <Badge
+                                        variant="destructive"
+                                        className="bg-[#0094F71A] text-blue-500 -right-3 h-6 w-6 rounded-full p-0 flex items-center justify-center text-xs"
+                                    >
+                                        {notificationCount}
+                                    </Badge>
+                                )}
+                            </Button>
+                        </Link>
                     </div>
 
                     {/* User menu */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                                <Avatar className="h-10 w-10">
-                                    <AvatarImage src="/placeholder.svg?height=40&width=40" alt="User" />
-                                    <AvatarFallback className="bg-green-600 text-white">
-                                        <User className="h-5 w-5" />
-                                    </AvatarFallback>
-                                </Avatar>
+                            <Button variant="ghost" className="relative h-10 w-10 rounded-full overflow-hidden cursor-pointer p-0">
+                                <Image
+                                    src={profilePicture}
+                                    alt="Profile Picture"
+                                    width={100}
+                                    height={100}
+                                    className="object-cover w-full h-full"
+                                />
                             </Button>
+
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56" align="end" forceMount>
                             <DropdownMenuItem>
-                                <User className="mr-2 h-4 w-4" />
-                                Profile
+                                <Link href="/dashboard/profile" className="flex items-center">
+                                    <User className="mr-2 h-4 w-4" />
+                                    Profile
+                                </Link>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>Settings</DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href="/dashboard/settings" className="flex items-center">
+                                    <Settings className="mr-2 h-4 w-4" />
+                                    Settings
+                                </Link>
+                            </DropdownMenuItem>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>Log out</DropdownMenuItem>
                         </DropdownMenuContent>
