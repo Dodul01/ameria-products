@@ -13,6 +13,7 @@ export default function OTPPage() {
   const inputRefs = useRef<HTMLInputElement[]>([])
 
   useEffect(() => {
+    inputRefs.current[0]?.focus();
     const interval = setInterval(() => {
       setTimer((prev) => (prev > 0 ? prev - 1 : 0))
     }, 1000)
@@ -89,6 +90,12 @@ export default function OTPPage() {
           <Button
             type="submit"
             className="cursor-pointer h-12 w-full rounded-full bg-gradient-to-b from-[#4F9F4F] to-[#08692C]  text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            onClick={() => {
+              const isComplete = otp.every((digit) => digit !== "");
+              if (isComplete) {
+                window.location.href = "/log-in";
+              }
+            }}
           >
             Sign In
           </Button>

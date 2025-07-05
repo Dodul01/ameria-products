@@ -8,6 +8,7 @@ import Image from "next/image"
 import { Pencil } from "lucide-react"
 import profileImage from '@/public/profile-picture.jpg';
 import rightArrow from '@/public/right-arrow.png';
+import { toast } from "sonner"
 
 export default function ProfilePage() {
     const [activeTab, setActiveTab] = useState("profile")

@@ -53,7 +53,6 @@ export default function UserTable({ users }: UserTableProps) {
                 <StatusBadge status={user.status} />
               </td>
               <td className="px-6 py-4">
-                 {/* <p>{JSON.stringify(user.company)}</p> */}
                 <ActionButtons companyDetails={user.company} status={user.status} />
               </td>
             </tr>

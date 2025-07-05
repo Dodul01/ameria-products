@@ -2,30 +2,44 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Edit, Plus, Trash } from "lucide-react"
+import { Edit, Trash } from "lucide-react"
 
 import { useState } from "react"
 import AddSubscription from "./_Components/AddSubscription"
+import EditPrice from "./_Components/EditPrice"
+import RemovePopup from "./_Components/RemovePopup"
 
 const page = () => {
+    const [subscriptions, setSubscriptions] = useState([]);
+    const [editOpen, setEditOpen] = useState(false);
+    const [removeOpen, setRemoveOpen] = useState(false);
+
     const [form, setForm] = useState({
         name: "",
         cycle: "",
         description: "",
-        price: "",
-    })
+        price: "35.00",
+    });
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setForm((prev) => ({
-            ...prev,
-            [name]: value,
-        }))
-    }
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+    };
 
     const handleSave = () => {
-        console.log("Saving Subscription:", form)
-    }
+        console.log("Saving Subscription:", form);
+    };
+
+    const handlePriceUpdate = (newPrice: string) => {
+        setForm((prev) => ({ ...prev, price: newPrice }));
+        // Optionally, send to backend
+    };
+
+    const handleRemove = () => {
+        console.log("Subscription removed");
+        // You can also update your subscriptions state or call API here
+    };
 
     return (
         <div>
@@ -48,18 +62,38 @@ const page = () => {
                         </div>
 
                         <div className="flex w-full gap-3">
-                            <Button className="flex-1 bg-[#E9FFE9] text-green-900 hover:bg-green-200 cursor-pointer">
+                            <Button
+                                onClick={() => setEditOpen(true)}
+                                className="flex-1 bg-[#E9FFE9] text-green-900 hover:bg-green-200"
+                            >
                                 <Edit className="w-4 h-4 mr-2" />
                                 Edit Price
                             </Button>
-                            <Button className="flex-1 bg-[#FEF2F2] text-red-900 hover:bg-red-200 cursor-pointer">
+                            <Button
+                                onClick={() => setRemoveOpen(true)}
+                                className="flex-1 bg-[#FEF2F2] text-red-900 hover:bg-red-200"
+                            >
                                 <Trash className="w-4 h-4 mr-2" />
                                 Remove Plan
                             </Button>
+
                         </div>
                     </CardContent>
                 </Card>
             </div>
+
+            <EditPrice
+                open={editOpen}
+                onOpenChange={setEditOpen}
+                currentPrice={form.price}
+                onSave={handlePriceUpdate}
+            />
+
+            <RemovePopup
+                open={removeOpen}
+                onOpenChange={setRemoveOpen}
+                onConfirm={handleRemove}
+            />
 
         </div>
     )
