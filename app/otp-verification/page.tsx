@@ -50,7 +50,7 @@ export default function OTPPage() {
       </div>
 
       {/* Right OTP Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-6">
+      <div className="w-full md:w-1/2 flex items-center justify-center pb-40 p-6">
         <div className="max-w-md w-full space-y-6">
           {/* Logo */}
           <div className="">

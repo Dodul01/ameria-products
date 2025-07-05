@@ -1,15 +1,14 @@
 "use client"
-import Image from "next/image"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import Image from "next/image";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import logo from '@/public/logo.png';
 
 export default function LoginPage() {
-
-    const [showPassword, setShowPassword] = useState(false)
-
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className="flex h-screen">
@@ -26,18 +25,12 @@ export default function LoginPage() {
             </div>
 
             {/* Right side - Login form */}
-            <div className="flex w-full items-center justify-center bg-gray-50 lg:w-1/2">
-                <div className="w-full max-w-md space-y-8 px-8">
+            <div className="flex w-full items-center justify-center pb-24 bg-gray-50 lg:w-1/2">
+                <div className="w-full max-w-md space-y-8 py-8">
                     <div className="flex flex-col items-start space-y-4">
-                        <div className="h-16 w-24">
-                            <Image
-                                src="/logo.png"
-                                alt="Redline Track Logo"
-                                width={96}
-                                height={64}
-                                className="h-full w-full object-contain"
-                            />
-                        </div>
+                        <div>
+                        <Image src={logo} alt="Logo" width={128} height={85} />
+                    </div>
                         <div className="text-start">
                             <h1 className="text-2xl font-semibold text-gray-900">Welcome to Redline Track</h1>
                             <p className="mt-2 text-sm text-gray-600">Sign in to your account</p>

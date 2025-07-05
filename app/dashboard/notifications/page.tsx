@@ -1,5 +1,8 @@
+"use client";
 import { Eye, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import rightArrow from '@/public/right-arrow.png';
 
 const dummyNotifications = {
   Today: [
@@ -16,19 +19,24 @@ const dummyNotifications = {
   ],
 };
 
+
 export default function Notifications() {
   return (
     <div className=" px-4 py-6">
+
       <div className="flex items-center space-x-2 mb-6">
-        <ArrowLeft className="h-5 w-5" />
+        <span className="bg-gray-200 p-2 rounded-full">
+          <Image src={rightArrow} alt="Back" width={24} height={24} className="cursor-pointer" onClick={() => window.history.back()} />
+        </span>
         <h2 className="text-lg font-semibold">Notifications</h2>
       </div>
+
 
       {Object.entries(dummyNotifications).map(([day, messages]) => (
         <div key={day} className="mb-8">
           <div className="flex items-center space-x-2 mb-2">
             <span className="font-medium text-gray-800">{day}</span>
-            <span className="text-xs bg-yellow-400 text-black rounded-full px-2 py-0.5">
+            <span className="text-xs bg-[#FFFACC80] text-black rounded-full px-2 py-0.5">
               {messages.length}
             </span>
           </div>

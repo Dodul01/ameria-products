@@ -43,6 +43,7 @@ export default function ProfilePage() {
             <div className="flex flex-col items-center text-center space-y-2">
                 <div className="flex space-x-4">
                     <div className="flex flex-col items-center text-center space-y-2 relative">
+                        {/* Profile Image */}
                         <div className="relative w-24 h-24 rounded-full overflow-hidden">
                             <Image
                                 src={profileImage}
@@ -53,11 +54,29 @@ export default function ProfilePage() {
                             />
                         </div>
 
-                        {/* Pencil icon outside of the clipped area */}
-                        <div className="absolute bottom-3 right-[calc(50%-48px)] z-20 bg-[#007400] p-1 rounded-full shadow-md cursor-pointer">
+                        {/* Pencil Icon with File Input */}
+                        <label
+                            htmlFor="profileImageUpload"
+                            className="absolute bottom-3 right-[calc(50%-48px)] z-20 bg-[#007400] p-1 rounded-full shadow-md cursor-pointer"
+                        >
                             <Pencil className="text-white w-4 h-4" />
-                        </div>
+                            <input
+                                id="profileImageUpload"
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                    const file = e.target.files?.[0];
+                                    if (file) {
+                                        // Add your image upload logic here
+                                        console.log("Image file selected:", file);
+                                        // Example: Upload to backend or preview locally
+                                    }
+                                }}
+                            />
+                        </label>
                     </div>
+
 
                     <div className="space-y-2">
                         <h2 className="text-start text-[26px] font-semibold">Akash Sharif</h2>
