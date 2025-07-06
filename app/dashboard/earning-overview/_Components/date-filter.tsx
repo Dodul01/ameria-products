@@ -86,13 +86,13 @@ export const DateFilter: React.FC<DetailsModalProps> = ({ onApply, onReset, chil
                         <Button
                             variant="outline"
                             onClick={handleReset}
-                            className="flex-1"
+                            className="flex-1 bg-[#D9D9D959] border-none"
                         >
                             Reset
                         </Button>
                         <Button
                             onClick={handleApply}
-                            className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                            className="flex-1 bg-[#08692C] hover:bg-green-700 text-white"
                         >
                             Apply
                         </Button>
