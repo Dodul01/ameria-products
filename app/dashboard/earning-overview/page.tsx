@@ -1,11 +1,12 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
 import { LineChartIcon, Settings2 } from "lucide-react"
-import EarningTable from "./_components/earning-table"
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Pagination from "../users/_Components/pagination";
+import EarningTable from "./_Components/earning-table";
+import { useState } from "react";
+import { DateFilter } from "./_Components/date-filter";
 
 const mockSubscription = [
     { serial: "#01", name: "Jane Cooper", Expiredate: "May 10, 2025", subscriptionType: "Pro Plan" as const, purchaseDate: "May 10, 2025" },
@@ -33,7 +34,7 @@ const mockSubscription = [
     { serial: "#21", name: "Jane Cooper", Expiredate: "May 10, 2025", subscriptionType: "Pro Plan" as const, purchaseDate: "May 10, 2025" },
 ];
 
-const page = () => {
+const Page = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const usersPerPage = 12;
@@ -76,12 +77,14 @@ const page = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="pl-4 pr-10 w-64"
                         />
-                        <Button
-                            size="sm"
-                            className="absolute right-0 top-1/2 -translate-y-1/2 h-9 w-10 p-0 bg-[#08692C] hover:bg-green-700 rounded-s-none"
-                        >
-                            <Settings2 className="h-4 w-4" />
-                        </Button>
+                        <DateFilter >
+                            <Button
+                                size="sm"
+                                className="absolute right-0 top-1/2 -translate-y-1/2 h-9 w-10 p-0 bg-[#08692C] hover:bg-green-700 rounded-s-none"
+                            >
+                                <Settings2 className="h-4 w-4" />
+                            </Button>
+                        </DateFilter>
                     </div>
                 </div>
             </div>
@@ -93,4 +96,4 @@ const page = () => {
     )
 }
 
-export default page;
+export default Page;
