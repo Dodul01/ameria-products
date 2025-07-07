@@ -51,7 +51,6 @@ const Charts = () => {
                             fillOpacity={1}
                             fill="url(#colorValue)"
                             strokeWidth={2.5}
-                            // dot={{ r: 3 }}
                             activeDot={{ r: 5 }}
                         />
                     </AreaChart>

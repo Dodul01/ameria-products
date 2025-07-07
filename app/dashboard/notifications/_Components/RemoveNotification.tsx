@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import RemoveNotification from "./RemoveNotification"; // correct path
+import RemoveNotification from "./RemoveNotification";
 
 import rightArrow from '@/public/right-arrow.png';
 

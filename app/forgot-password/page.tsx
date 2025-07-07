@@ -33,8 +33,8 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Right side - Login form */}
-            <div className="flex w-full items-center justify-center bg-gray-50 pb-48 lg:w-1/2">
-                <div className="w-full max-w-md space-y-8 py-8">
+            <div className="flex w-full items-start justify-center bg-gray-50 lg:w-1/2">
+                <div className="w-full max-w-md space-y-8 py-8 mt-[10%]">
                     <div className="flex flex-col items-start space-y-4">
                         <div className="">
                             <Image

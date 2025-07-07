@@ -6,17 +6,19 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import { Pencil } from "lucide-react"
-import profileImage from '@/public/profile-picture.jpg';
+import defProfileImage from '@/public/profile-picture.jpg';
 import rightArrow from '@/public/right-arrow.png';
 import { toast } from "sonner"
 
 export default function ProfilePage() {
     const [activeTab, setActiveTab] = useState("profile")
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [profile, setProfile] = useState({
         username: "Justyna Bronowicka",
         email: "Camille@gmail.com",
         contact: "+99007007007",
     })
+    const [profileImage, setProfileImage] = useState<string | typeof defProfileImage>(defProfileImage);
 
     const [passwords, setPasswords] = useState({
         current: "",
@@ -31,6 +33,36 @@ export default function ProfilePage() {
     const handlePasswordChange = (e: any) => {
         setPasswords({ ...passwords, [e.target.name]: e.target.value })
     }
+
+    const handleProfileImageChange = (e: any) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setSelectedFile(file);
+            setProfileImage(URL.createObjectURL(file));
+        }
+    };
+
+    const handleSaveProfile = async () => {
+        try {
+            const formData = new FormData();
+            formData.append("username", profile.username);
+            formData.append("email", profile.email);
+            formData.append("contact", profile.contact);
+            if (selectedFile) {
+                formData.append("profileImage", selectedFile);
+            }
+
+            toast.success("Profile updated successfully!");
+            //    api request to save profile data
+
+            toast.success("Profile updated successfully!");
+        } catch (err) {
+            toast.error("Something went wrong.");
+            console.error(err);
+        }
+    };
+
+
 
     return (
         <div className="px-4 py-8">
@@ -66,14 +98,7 @@ export default function ProfilePage() {
                                 type="file"
                                 accept="image/*"
                                 className="hidden"
-                                onChange={(e) => {
-                                    const file = e.target.files?.[0];
-                                    if (file) {
-                                        // Add your image upload logic here
-                                        console.log("Image file selected:", file);
-                                        // Example: Upload to backend or preview locally
-                                    }
-                                }}
+                                onChange={handleProfileImageChange}
                             />
                         </label>
                     </div>
@@ -138,9 +163,13 @@ export default function ProfilePage() {
                             placeholder="+1234567890"
                         />
                     </div>
-                    <Button className="w-full bg-green-800 hover:bg-green-700 text-white">
+                    <Button
+                        className="w-full bg-green-800 hover:bg-green-700 text-white"
+                        onClick={handleSaveProfile}
+                    >
                         Save Changes
                     </Button>
+
                 </div>
             )}
 

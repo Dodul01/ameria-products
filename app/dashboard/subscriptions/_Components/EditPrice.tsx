@@ -21,7 +21,7 @@ const EditPrice = ({
 
   const handleSubmit = () => {
     onSave(price);
-    onOpenChange(false); // ⬅️ Close dialog
+    onOpenChange(false);
   };
 
   return (

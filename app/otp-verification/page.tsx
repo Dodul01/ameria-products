@@ -51,7 +51,7 @@ export default function OTPPage() {
       </div>
 
       {/* Right OTP Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center pb-40 p-6">
+      <div className="w-full md:w-1/2 flex items-start justify-center p-6 mt-[5%]">
         <div className="max-w-md w-full space-y-6">
           {/* Logo */}
           <div className="">
@@ -93,11 +93,11 @@ export default function OTPPage() {
             onClick={() => {
               const isComplete = otp.every((digit) => digit !== "");
               if (isComplete) {
-                window.location.href = "/log-in";
+                window.location.href = "/recover-password";
               }
             }}
           >
-            Sign In
+           Verify
           </Button>
         </div>
       </div>

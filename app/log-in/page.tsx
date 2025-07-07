@@ -18,7 +18,6 @@ export default function LoginPage() {
         e.preventDefault();
         if (!email || !password) return;
 
-        // Dummy login logic
         console.log("Email:", email);
         console.log("Password:", password);
 
@@ -41,15 +40,15 @@ export default function LoginPage() {
             </div>
 
             {/* Right side - Login form */}
-            <div className="flex w-full items-center justify-center pb-24 bg-gray-50 lg:w-1/2">
-                <div className="w-full max-w-md space-y-8 py-8">
+            <div className="flex w-full items-start justify-center bg-gray-50 lg:w-1/2">
+                <div className="w-full max-w-md space-y-8 py-8 mt-[10%]">
                     <div className="flex flex-col items-start space-y-4">
                         <div>
                             <Image src={logo} alt="Logo" width={128} height={85} />
                         </div>
                         <div className="text-start">
                             <h1 className="text-2xl font-semibold text-gray-900">Welcome to Redline Track</h1>
-                            <p className="mt-2 text-sm text-gray-600">Sign in to your account</p>
+                            <p className="mt-2 text-sm font-semibold text-gray-600">Sign in to your account</p>
                         </div>
                     </div>
 

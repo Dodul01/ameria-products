@@ -7,7 +7,8 @@ import { Edit, Trash } from "lucide-react"
 import { useState } from "react"
 import AddSubscription from "./_Components/AddSubscription"
 import EditPrice from "./_Components/EditPrice"
-import RemovePopup from "./_Components/RemovePopup"
+import RemoveNotification from "./_Components/RemovePopup"
+import { toast } from "sonner"
 
 const page = () => {
     const [subscriptions, setSubscriptions] = useState([]);
@@ -29,16 +30,18 @@ const page = () => {
 
     const handleSave = () => {
         console.log("Saving Subscription:", form);
+        toast.success("Subscription saved successfully");
     };
 
     const handlePriceUpdate = (newPrice: string) => {
         setForm((prev) => ({ ...prev, price: newPrice }));
-        // Optionally, send to backend
+        toast.success("Price updated successfully");
     };
 
     const handleRemove = () => {
         console.log("Subscription removed");
-        // You can also update your subscriptions state or call API here
+        setRemoveOpen(false);
+        toast.success("Subscription removed successfully");
     };
 
     return (
@@ -89,7 +92,7 @@ const page = () => {
                 onSave={handlePriceUpdate}
             />
 
-            <RemovePopup
+            <RemoveNotification
                 open={removeOpen}
                 onOpenChange={setRemoveOpen}
                 onConfirm={handleRemove}
