@@ -3,6 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
@@ -45,7 +46,8 @@ export default function SettingsPage() {
 
 
   const handleSave = () => {
-    console.log("Saved:", content[activeTab]);
+    console.log(`${tabs[activeTab]} Data`, content[activeTab]);
+    toast.success("Changes saved successfully!");
   };
 
   return (

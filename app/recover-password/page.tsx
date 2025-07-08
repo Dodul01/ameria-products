@@ -7,10 +7,29 @@ import { Button } from "@/components/ui/button"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
 import militaryImage from '@/public/log-in.jpg'
 import logo from '@/public/logo.png'
+import { toast } from "sonner"
 
 export default function NewPasswordPage() {
+    const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword1, setShowPassword1] = useState(false)
     const [showPassword2, setShowPassword2] = useState(false)
+
+
+    const handleResetPassword = () => {
+        if (!newPassword || !confirmPassword) {
+            toast.error("Please fill in both password fields.");
+            return;
+        }
+
+        if (newPassword !== confirmPassword) {
+            toast.error("Passwords do not match.");
+            return;
+        }
+
+        toast.success("Password reset successfully!");
+        window.location.href = "/log-in";
+    }
 
     return (
         <div className="flex min-h-screen">
@@ -26,7 +45,7 @@ export default function NewPasswordPage() {
             </div>
 
             {/* Right Side Form */}
-            <div className="w-full md:w-1/2 flex items-center justify-center pb-40 p-6">
+            <div className="w-full md:w-1/2 flex items-start justify-center p-6 mt-[5%]">
                 <div className="w-full max-w-md space-y-6">
                     {/* Logo */}
                     <div>
@@ -46,6 +65,8 @@ export default function NewPasswordPage() {
                         <h3 className="text-sm mb-2 text-muted-foreground font-semibold">New Password</h3>
                         <div className="relative">
                             <Input
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
                                 type={showPassword1 ? "text" : "password"}
                                 placeholder="Password"
                                 className="px-3 py-2 h-12 w-full"
@@ -66,6 +87,8 @@ export default function NewPasswordPage() {
                         <h3 className="text-sm mb-2 text-muted-foreground font-semibold">Confirm Password</h3>
                         <div className="relative">
                             <Input
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                                 type={showPassword2 ? "text" : "password"}
                                 placeholder="Confirm Password"
                                 className="px-3 py-2 h-12 w-full"
@@ -86,10 +109,11 @@ export default function NewPasswordPage() {
 
                     {/* Submit Button */}
                     <Button
+                        onClick={handleResetPassword}
                         type="submit"
-                        className="h-12 w-full rounded-full bg-gradient-to-b from-[#4F9F4F] to-[#08692C]  text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                        className="h-12 w-full rounded-full bg-gradient-to-b from-[#4F9F4F] to-[#08692C]  text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 cursor-pointer"
                     >
-                        Sign In
+                        Reset Password
                     </Button>
                 </div>
             </div>

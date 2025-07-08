@@ -2,30 +2,47 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Edit, Plus, Trash } from "lucide-react"
+import { Edit, Trash } from "lucide-react"
 
 import { useState } from "react"
 import AddSubscription from "./_Components/AddSubscription"
+import EditPrice from "./_Components/EditPrice"
+import RemoveNotification from "./_Components/RemovePopup"
+import { toast } from "sonner"
 
 const page = () => {
+    const [subscriptions, setSubscriptions] = useState([]);
+    const [editOpen, setEditOpen] = useState(false);
+    const [removeOpen, setRemoveOpen] = useState(false);
+
     const [form, setForm] = useState({
         name: "",
         cycle: "",
         description: "",
-        price: "",
-    })
+        price: "35.00",
+    });
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setForm((prev) => ({
-            ...prev,
-            [name]: value,
-        }))
-    }
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+    };
 
     const handleSave = () => {
-        console.log("Saving Subscription:", form)
-    }
+        console.log("Saving Subscription:", form);
+        toast.success("Subscription saved successfully");
+    };
+
+    const handlePriceUpdate = (newPrice: string) => {
+        setForm((prev) => ({ ...prev, price: newPrice }));
+        toast.success("Price updated successfully");
+    };
+
+    const handleRemove = () => {
+        console.log("Subscription removed");
+        setRemoveOpen(false);
+        toast.success("Subscription removed successfully");
+    };
 
     return (
         <div>
@@ -48,18 +65,38 @@ const page = () => {
                         </div>
 
                         <div className="flex w-full gap-3">
-                            <Button className="flex-1 bg-[#E9FFE9] text-green-900 hover:bg-green-200 cursor-pointer">
+                            <Button
+                                onClick={() => setEditOpen(true)}
+                                className="flex-1 bg-[#E9FFE9] text-green-900 hover:bg-green-200"
+                            >
                                 <Edit className="w-4 h-4 mr-2" />
                                 Edit Price
                             </Button>
-                            <Button className="flex-1 bg-[#FEF2F2] text-red-900 hover:bg-red-200 cursor-pointer">
+                            <Button
+                                onClick={() => setRemoveOpen(true)}
+                                className="flex-1 bg-[#FEF2F2] text-red-900 hover:bg-red-200"
+                            >
                                 <Trash className="w-4 h-4 mr-2" />
                                 Remove Plan
                             </Button>
+
                         </div>
                     </CardContent>
                 </Card>
             </div>
+
+            <EditPrice
+                open={editOpen}
+                onOpenChange={setEditOpen}
+                currentPrice={form.price}
+                onSave={handlePriceUpdate}
+            />
+
+            <RemoveNotification
+                open={removeOpen}
+                onOpenChange={setRemoveOpen}
+                onConfirm={handleRemove}
+            />
 
         </div>
     )

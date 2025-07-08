@@ -1,8 +1,11 @@
 "use client";
-import { Eye, ArrowLeft } from "lucide-react";
+import { Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import rightArrow from '@/public/right-arrow.png';
+import { useState } from "react";
+import RemoveNotification from "../subscriptions/_Components/RemovePopup";
+import { toast } from "sonner";
 
 const dummyNotifications = {
   Today: [
@@ -19,8 +22,33 @@ const dummyNotifications = {
   ],
 };
 
-
 export default function Notifications() {
+  const [open, setOpen] = useState(false);
+  const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
+  const [notifications, setNotifications] = useState<{ Today: string[]; Yesterday: string[] }>(dummyNotifications);
+
+  const handleRemoveClick = (msg: string) => {
+    setSelectedMessage(msg);
+    setOpen(true);
+  };
+
+  const handleConfirmRemove = () => {
+    if (!selectedMessage) return;
+
+    const updated = Object.fromEntries(
+      Object.entries(notifications).map(([day, msgs]) => [
+        day,
+        msgs.filter((m) => m !== selectedMessage),
+      ])
+    );
+
+    setNotifications(updated as { Today: string[]; Yesterday: string[] });
+    setSelectedMessage(null);
+    setOpen(false);
+
+    toast.success("Notification removed successfully!");
+  };
+
   return (
     <div className=" px-4 py-6">
 
@@ -30,7 +58,6 @@ export default function Notifications() {
         </span>
         <h2 className="text-lg font-semibold">Notifications</h2>
       </div>
-
 
       {Object.entries(dummyNotifications).map(([day, messages]) => (
         <div key={day} className="mb-8">
@@ -53,15 +80,26 @@ export default function Notifications() {
                   <Button variant="ghost" size="icon" className="h-8 w-8">
                     <Eye className="h-4 w-4 text-gray-600" />
                   </Button>
-                  <Button className="bg-red-600 hover:bg-red-700 text-white h-8 px-3 text-xs">
+                  <Button
+                    className="bg-red-600 hover:bg-red-700 text-white h-8 px-3 text-xs"
+                    onClick={() => handleRemoveClick(msg)}
+                  >
                     Remove
                   </Button>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
       ))}
+
+      <RemoveNotification
+        open={open}
+        onOpenChange={setOpen}
+        onConfirm={handleConfirmRemove}
+      />
+
     </div>
   );
 }

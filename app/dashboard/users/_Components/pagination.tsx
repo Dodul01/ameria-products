@@ -12,11 +12,7 @@ interface PaginationProps {
 export default function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
   const getVisiblePages = () => {
     const pages = []
-
-    // Always show first page
     pages.push(1)
-
-    // Show current page and surrounding pages
     if (currentPage > 3) {
       pages.push("...")
     }
@@ -27,7 +23,6 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
       }
     }
 
-    // Show last page if there are multiple pages
     if (totalPages > 1) {
       if (currentPage < totalPages - 2) {
         pages.push("...")

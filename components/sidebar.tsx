@@ -51,9 +51,10 @@ export function Sidebar({ className }: SidebarProps) {
     const [isMobileOpen, setIsMobileOpen] = useState(false)
 
     const handleLogout = () => {
-        // Handle logout logic
         toast.success("Logged out successfully!")
+        window.location.href = "/log-in";
     }
+// todo : button 
 
     return (
         <>

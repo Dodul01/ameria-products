@@ -2,8 +2,21 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useState } from "react"
+import { toast } from "sonner"
 
 export default function ForgotPasswordPage() {
+    const [email, setEmail] = useState("")
+
+    const handleForgotPassword = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!email) return
+
+        console.log("Sending OTP to:", email)
+
+        toast.success("OTP sent to your email");
+        window.location.href = "/otp-verification";
+    }
 
     return (
         <div className="flex h-screen">
@@ -20,8 +33,8 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Right side - Login form */}
-            <div className="flex w-full items-center justify-center bg-gray-50 pb-48 lg:w-1/2">
-                <div className="w-full max-w-md space-y-8 py-8">
+            <div className="flex w-full items-start justify-center bg-gray-50 lg:w-1/2">
+                <div className="w-full max-w-md space-y-8 py-8 mt-[10%]">
                     <div className="flex flex-col items-start space-y-4">
                         <div className="">
                             <Image
@@ -37,7 +50,7 @@ export default function ForgotPasswordPage() {
                         </div>
                     </div>
 
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleForgotPassword}>
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
@@ -45,6 +58,8 @@ export default function ForgotPasswordPage() {
                             <Input
                                 id="email"
                                 type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="h-12 w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                                 placeholder="Enter your email"
                                 required
