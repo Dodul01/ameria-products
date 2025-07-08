@@ -100,7 +100,7 @@ export function Sidebar({ className }: SidebarProps) {
                                 <Link key={item.id} href={item.href}>
                                     <div
                                         className={cn(
-                                            "flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                                            "flex mb-1 items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                                             isActive ? "bg-[#08692C] text-white" : "text-[#5C5C5C] hover:bg-gray-100 hover:text-gray-900",
                                         )}
                                     >
