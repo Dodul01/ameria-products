@@ -10,8 +10,7 @@ import EditPrice from "./_Components/EditPrice"
 import RemoveNotification from "./_Components/RemovePopup"
 import { toast } from "sonner"
 
-const page = () => {
-    const [subscriptions, setSubscriptions] = useState([]);
+const Page = () => {
     const [editOpen, setEditOpen] = useState(false);
     const [removeOpen, setRemoveOpen] = useState(false);
 
@@ -96,10 +95,11 @@ const page = () => {
                 open={removeOpen}
                 onOpenChange={setRemoveOpen}
                 onConfirm={handleRemove}
+                title="Subscription"
             />
 
         </div>
     )
 }
 
-export default page
+export default Page

@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import RemoveNotification from "./RemoveNotification";
 
 import rightArrow from '@/public/right-arrow.png';
 
@@ -20,12 +18,8 @@ const dummyNotifications = {
 };
 
 export default function Notifications() {
-    const [open, setOpen] = useState(false);
-    const [selectedNotification, setSelectedNotification] = useState<string | null>(null);
 
-    const handleRemove = (msg: string) => {
-        setSelectedNotification(msg);
-        setOpen(true);
+    const handleRemove = () => {
     };
 
 
@@ -68,7 +62,7 @@ export default function Notifications() {
                                     </Button>
                                     <Button
                                         className="bg-red-600 hover:bg-red-700 text-white h-8 px-3 text-xs"
-                                        onClick={() => handleRemove(msg)}
+                                        onClick={() => handleRemove()}
                                     >
                                         Remove
                                     </Button>

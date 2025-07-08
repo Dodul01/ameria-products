@@ -13,22 +13,24 @@ type RemoveNotificationProps = {
     open: boolean;
     onOpenChange: (open: boolean) => void;
     onConfirm: () => void;
+    title?: string;
 };
 
 const RemoveNotification = ({
     open,
     onOpenChange,
     onConfirm,
+    title,
 }: RemoveNotificationProps) => {
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Remove Subscription?</DialogTitle>
+                    <DialogTitle>Remove {title}?</DialogTitle>
                 </DialogHeader>
                 <p className="text-sm text-muted-foreground">
-                    Are you sure you want to delete this subscription? This action cannot be undone.
+                    Are you sure you want to delete this {title?.toLowerCase()}? This action cannot be undone.
                 </p>
                 <DialogFooter className="flex justify-end gap-2 pt-4">
                     <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>

@@ -98,6 +98,7 @@ export default function Notifications() {
         open={open}
         onOpenChange={setOpen}
         onConfirm={handleConfirmRemove}
+        title="Notification"
       />
 
     </div>
